@@ -1,60 +1,56 @@
-# Consumer Grievance Management System (CGMS)
+# CGMS: Consumer Grievance Management System
 
-A full-stack application that leverages the Gemini API to help consumers draft professional, factual, and actionable grievance letters.
+CGMS drafts structured consumer grievance letters using Gemini 1.5, generates PDF filings, and tracks complaint status across an interactive dashboard. Built with FastAPI, MongoDB, React, and Tailwind CSS.
 
-## Features
+## Architecture
 
-- **AI-Powered Generation:** Converts raw consumer complaints into professional drafts using `gemini-3.5-flash`.
-- **Stateless Auth:** Secure JWT-based authentication.
-- **Rate Limiting:** Protects the Gemini API with a strict daily generation limit per user (tracked via MongoDB).
-- **PDF Export:** Generates professional PDF versions of finalized grievance letters with embedded Unicode fonts.
-- **Modern UI:** Built with React, Tailwind CSS v4, and TanStack Query.
+- `backend/`: FastAPI REST API with JWT authentication, MongoDB rate limiting, and ReportLab PDF compilation.
+- `frontend/`: React SPA built with Vite and Tailwind CSS.
 
-## Project Structure
+## Requirements
 
-- `backend/`: FastAPI application.
-- `frontend/`: React + Vite application.
+- Python 3.11+
+- Node.js 18+
+- Docker and Docker Compose (optional)
+- MongoDB 7.0+
+- Google Gemini API key
 
-## Prerequisites
+## Quick Start (Docker)
 
-- Docker and Docker Compose
-- Node.js (for local frontend development)
-- Python 3.11 (for local backend development)
-- A Gemini API key (from Google AI Studio)
-
-## Getting Started (Docker Compose)
-
-1. Create a `.env` file in the `backend` directory:
+1. Set up backend configuration:
    ```bash
    cp backend/.env.example backend/.env
    ```
-2. Edit `backend/.env` and insert your actual `GEMINI_API_KEY` and a random string for `JWT_SECRET_KEY`.
-3. Start the entire stack:
+2. Set `GEMINI_API_KEY` and `JWT_SECRET_KEY` in `backend/.env`.
+3. Launch services:
    ```bash
    docker-compose up --build
    ```
-4. Access the frontend at `http://localhost:5173`.
-5. Access the backend API docs at `http://localhost:8000/docs`.
+4. Web application runs at `http://localhost:5173`.
+5. OpenAPI documentation runs at `http://localhost:8000/docs`.
 
-## Local Development (Without Docker)
+## Local Development
 
 ### Backend
-1. Ensure a local MongoDB instance is running on `localhost:27017`.
-2. `cd backend`
-3. Create a virtual environment: `python -m venv venv && source venv/bin/activate`
-4. Install dependencies: `pip install -r requirements.txt`
-5. Configure `.env` in the backend folder.
-6. Run the server: `fastapi dev main.py` or `uvicorn main:app --reload`
-7. Run tests: `pytest`
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate   # Windows
+# or: source venv/bin/activate
+pip install -r requirements.txt
+python -m unittest discover -s tests -p "*_unit.py"
+uvicorn main:app --reload --port 8000
+```
 
 ### Frontend
-1. `cd frontend`
-2. Install dependencies: `npm install`
-3. Start the dev server: `npm run dev`
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## Notes on Spec Corrections Applied
+## Security and Invariants
 
-- Date conversion boundaries are explicitly handled (MongoDB doesn't store native Python `date` objects).
-- ObjectIDs are validated and converted gracefully, preventing 500 errors on bad inputs.
-- AI Generation implements a fallback/retry for malformed schema outputs from Gemini.
-- A PDF rendering pipeline safely strips control characters and embeds DejaVu Sans fonts.
+- CORS origins are sanitized, deduplicated, and stripped of trailing slashes.
+- Rate limits are tracked by user ID and UTC date with automated TTL cleanup in MongoDB.
+- Input validation sanitizes strings before PDF generation to prevent font rendering exceptions.
