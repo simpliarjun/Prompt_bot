@@ -5,7 +5,10 @@ Loads and validates all environment variables from §15.
 
 from typing import Optional, Union
 from pydantic import Field, field_validator, SecretStr
-from pydantic_settings import BaseSettings
+try:
+    from pydantic_settings import BaseSettings
+except ImportError:
+    from pydantic import BaseModel as BaseSettings
 
 
 class Settings(BaseSettings):
@@ -45,10 +48,17 @@ class Settings(BaseSettings):
     @field_validator("CORS_ALLOWED_ORIGINS", mode="before")
     @classmethod
     def parse_cors_origins(cls, v):
-        """Accept both a JSON list and a bare comma-separated string."""
-        if isinstance(v, str):
-            return [origin.strip() for origin in v.split(",") if origin.strip()]
-        return v
+        """Accept both a JSON list and a bare comma-separated string, strip trailing slashes, and deduplicate."""
+        items = v.split(",") if isinstance(v, str) else v
+        if not items:
+            return []
+        cleaned = []
+        for origin in items:
+            if isinstance(origin, str):
+                trimmed = origin.strip().rstrip("/")
+                if trimmed and trimmed not in cleaned:
+                    cleaned.append(trimmed)
+        return cleaned
 
     # --- Rate Limiting ---
     RATE_LIMIT_GENERATIONS_PER_DAY: int = Field(
