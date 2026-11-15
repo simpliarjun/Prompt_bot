@@ -16,6 +16,11 @@ from logging_config import get_logger
 logger = get_logger(__name__)
 
 
+def compute_remaining_quota(current: int, max_limit: int) -> int:
+    """Calculate remaining daily quota; returns 0 if current exceeds or equals limit."""
+    return max(0, max_limit - current)
+
+
 async def check_and_increment(user_id: str) -> int:
     """
     Atomically check the user's generation count for today (UTC) and

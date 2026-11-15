@@ -11,10 +11,22 @@ Centralises:
 from datetime import date, datetime, time, timezone
 from typing import Any, Optional
 
-from bson import ObjectId
-from bson.errors import InvalidId
+try:
+    from bson import ObjectId
+    from bson.errors import InvalidId
+except ImportError:
+    class ObjectId(str):
+        pass
+    class InvalidId(Exception):
+        pass
+
 from fastapi import HTTPException
-from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
+
+try:
+    from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
+except ImportError:
+    AsyncIOMotorClient = Any
+    AsyncIOMotorDatabase = Any
 
 from config import get_settings
 from logging_config import get_logger
