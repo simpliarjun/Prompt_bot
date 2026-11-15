@@ -17,11 +17,11 @@ export default function GrievanceCard({ grievance }) {
   return (
     <Link
       to={`/grievances/${id}`}
-      className="block group bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-indigo-500/50 rounded-xl p-5 transition-all duration-200 hover:shadow-lg hover:shadow-indigo-500/10"
+      className="block group bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-blue-500/50 rounded-xl p-5 transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/10"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1 min-w-0 pr-4">
-          <h3 className="text-lg font-medium text-slate-100 truncate group-hover:text-indigo-400 transition-colors">
+          <h3 className="text-lg font-medium text-slate-100 truncate group-hover:text-blue-400 transition-colors">
             {company_name}
           </h3>
           <p className="text-sm text-slate-400 truncate">

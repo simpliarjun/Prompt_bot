@@ -37,7 +37,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <label className="block text-sm font-medium text-slate-300 mb-1">Company Name *</label>
             <input
               {...register('company_name')}
-              className={`w-full bg-slate-900 border ${errors.company_name ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors`}
+              className={`w-full bg-slate-900 border ${errors.company_name ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors`}
               placeholder="e.g. Acme Corp"
             />
             {errors.company_name && <p className="mt-1 text-sm text-red-400">{errors.company_name.message}</p>}
@@ -47,7 +47,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <label className="block text-sm font-medium text-slate-300 mb-1">Product or Service *</label>
             <input
               {...register('product_or_service')}
-              className={`w-full bg-slate-900 border ${errors.product_or_service ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors`}
+              className={`w-full bg-slate-900 border ${errors.product_or_service ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors`}
               placeholder="e.g. Wireless Router X200"
             />
             {errors.product_or_service && <p className="mt-1 text-sm text-red-400">{errors.product_or_service.message}</p>}
@@ -57,7 +57,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <label className="block text-sm font-medium text-slate-300 mb-1">Category *</label>
             <select
               {...register('category')}
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
             >
               {CATEGORIES.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
             </select>
@@ -68,7 +68,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <input
               type="date"
               {...register('incident_date')}
-              className={`w-full bg-slate-900 border ${errors.incident_date ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors`}
+              className={`w-full bg-slate-900 border ${errors.incident_date ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors`}
             />
             {errors.incident_date && <p className="mt-1 text-sm text-red-400">{errors.incident_date.message}</p>}
           </div>
@@ -77,7 +77,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <label className="block text-sm font-medium text-slate-300 mb-1">Order / Reference # (Optional)</label>
             <input
               {...register('order_reference')}
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
               placeholder="e.g. ORD-123456"
             />
           </div>
@@ -92,7 +92,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
         <textarea
           {...register('raw_description')}
           rows="5"
-          className={`w-full bg-slate-900 border ${errors.raw_description ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-3 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors resize-y`}
+          className={`w-full bg-slate-900 border ${errors.raw_description ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-3 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-y`}
           placeholder="I purchased this item on Tuesday and immediately noticed that..."
         />
         {errors.raw_description && <p className="mt-1 text-sm text-red-400">{errors.raw_description.message}</p>}
@@ -107,7 +107,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <label className="block text-sm font-medium text-slate-300 mb-1">Primary Outcome *</label>
             <select
               {...register('desired_resolution')}
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
             >
               {RESOLUTIONS.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
             </select>
@@ -117,7 +117,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <label className="block text-sm font-medium text-slate-300 mb-1">Additional Details (Optional)</label>
             <input
               {...register('desired_resolution_details')}
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
               placeholder="e.g. Refund to original payment method"
             />
           </div>
@@ -133,7 +133,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <label className="block text-sm font-medium text-slate-300 mb-1">Full Name *</label>
             <input
               {...register('contact_name')}
-              className={`w-full bg-slate-900 border ${errors.contact_name ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors`}
+              className={`w-full bg-slate-900 border ${errors.contact_name ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors`}
             />
             {errors.contact_name && <p className="mt-1 text-sm text-red-400">{errors.contact_name.message}</p>}
           </div>
@@ -143,7 +143,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <input
               type="email"
               {...register('contact_email')}
-              className={`w-full bg-slate-900 border ${errors.contact_email ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors`}
+              className={`w-full bg-slate-900 border ${errors.contact_email ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors`}
             />
             {errors.contact_email && <p className="mt-1 text-sm text-red-400">{errors.contact_email.message}</p>}
           </div>
@@ -152,7 +152,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
             <label className="block text-sm font-medium text-slate-300 mb-1">Phone Number (Optional)</label>
             <input
               {...register('contact_phone')}
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
             />
           </div>
         </div>
@@ -163,7 +163,7 @@ export default function GrievanceForm({ onSubmit, defaultValues = {}, isSubmitti
         <button
           type="submit"
           disabled={isSubmitting}
-          className="px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-medium hover:from-indigo-600 hover:to-indigo-700 transition-all shadow-lg shadow-indigo-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors shadow-md shadow-blue-600/20 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
           {isSubmitting ? (
             <>

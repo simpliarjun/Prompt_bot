@@ -28,7 +28,7 @@ export default function GrievanceLetterEditor({
       <div className="p-6 bg-slate-800/80 border-b border-slate-700">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
           <h2 className="text-xl font-semibold text-slate-100 flex items-center gap-2">
-            <span className="material-icons text-indigo-400">description</span>
+            <span className="material-icons text-blue-400">description</span>
             Generated Letter
           </h2>
           <div className="flex items-center gap-4">
@@ -43,13 +43,13 @@ export default function GrievanceLetterEditor({
         {/* Key Facts Summary */}
         <div className="bg-slate-900/50 rounded-lg p-4 border border-slate-700/50">
           <h4 className="text-sm font-medium text-slate-300 mb-2 flex items-center gap-1.5">
-            <span className="material-icons text-[16px] text-indigo-400">psychology</span>
+            <span className="material-icons text-[16px] text-blue-400">psychology</span>
             AI Key Facts Extraction
           </h4>
           <ul className="space-y-1.5">
             {generatedData.key_facts_summary?.map((fact, idx) => (
               <li key={idx} className="text-sm text-slate-400 flex items-start gap-2">
-                <span className="text-indigo-500 mt-0.5">•</span>
+                <span className="text-blue-500 mt-0.5">•</span>
                 <span>{fact}</span>
               </li>
             ))}
@@ -73,17 +73,17 @@ export default function GrievanceLetterEditor({
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             readOnly={hideActions}
-            className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors font-medium"
+            className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors font-medium"
           />
         </div>
 
         <div>
           <label className="block text-sm font-medium text-slate-300 mb-2 flex items-center justify-between">
             <span>Letter Body</span>
-            {!hideActions && <span className="text-xs text-indigo-400 font-normal">Feel free to edit the text below</span>}
+            {!hideActions && <span className="text-xs text-blue-400 font-normal">Feel free to edit the text below</span>}
           </label>
           
-          <div className="bg-slate-900 border border-slate-700 rounded-lg overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 transition-colors">
+          <div className="bg-slate-900 border border-slate-700 rounded-lg overflow-hidden focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-colors">
             {/* Contextual template boundaries */}
             <div className="px-4 py-3 bg-slate-800/50 border-b border-slate-700/50 text-slate-400 text-sm font-mono select-none">
               Dear {companyName || '[Company]'} Customer Relations Team,
@@ -119,7 +119,7 @@ export default function GrievanceLetterEditor({
           <button
             onClick={() => onSave({ subject_line: subject, letter_body: body, status: 'finalized' })}
             disabled={isSaving}
-            className="px-6 py-2.5 rounded-lg text-sm font-medium text-white bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 transition-all shadow-lg shadow-indigo-500/25 disabled:opacity-50 flex items-center gap-2"
+            className="px-6 py-2.5 rounded-lg text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20 disabled:opacity-50 flex items-center gap-2"
           >
             {isSaving && (
               <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">

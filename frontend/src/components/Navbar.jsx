@@ -16,7 +16,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform">
+            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm transition-colors">
               CG
             </div>
             <span className="text-lg font-semibold text-slate-100 hidden sm:block">
@@ -29,12 +29,12 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
               <Link
                 to="/grievances/new"
-                className="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600 text-white text-sm font-medium hover:from-indigo-600 hover:to-indigo-700 transition-all shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40"
+                className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20"
               >
                 + New Grievance
               </Link>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-sm font-medium text-indigo-300">
+                <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-sm font-medium text-blue-300">
                   {user?.full_name?.[0]?.toUpperCase() || '?'}
                 </div>
                 <span className="text-sm text-slate-300 hidden sm:block">
@@ -59,7 +59,7 @@ export default function Navbar() {
               </Link>
               <Link
                 to="/register"
-                className="px-4 py-2 rounded-lg bg-indigo-500 text-white text-sm font-medium hover:bg-indigo-600 transition-colors"
+                className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
               >
                 Sign Up
               </Link>
